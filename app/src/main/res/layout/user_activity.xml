@@ -1,10 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- Los iconos tienen una anchura y altura de @dimen/user_button_min_width -->
+    <ImageView
+        android:id="@+id/photoUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/prueba"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+
+        />
+    <TextView
+        android:id="@+id/lbl_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_lblName"
+        android:layout_margin="@dimen/margin_2x"
+        app:layout_constraintTop_toBottomOf="@+id/photoUser"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <EditText
+        android:id="@+id/lbl_edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_name"
+        app:layout_constraintStart_toStartOf="@id/lbl_name"
+        android:imeOptions="actionNext"
+        android:hint="@string/user_txtName"
+        android:ems="18"
+        />
+
+    <TextView
+        android:id="@+id/lbl_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/user_lblEmail"
+        app:layout_constraintStart_toStartOf="@+id/lbl_edit_name"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_edit_name" />
+
+    <ImageView
+        android:id="@+id/lbl_icon_phone"
+        android:layout_width="@dimen/user_button_min_width"
+        android:layout_height="@dimen/user_button_min_width"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_call_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_email" />
+
+    <TextView
+        android:id="@+id/lbl_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/user_lblPhonenumber"
+        app:layout_constraintStart_toEndOf="@+id/lbl_icon_email"
+        app:layout_constraintTop_toTopOf="@+id/lbl_email" />
+
+    <ImageView
+        android:id="@+id/lbl_icon_email"
+        android:layout_width="32dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_email_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_email" />
+
+    <EditText
+        android:id="@+id/lbl_edit_number"
+        android:layout_width="124dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="4dp"
+        android:hint="@string/user_txtPhonenumber"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/lbl_icon_phone"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/lbl_icon_email"
+        app:layout_constraintTop_toTopOf="@+id/lbl_icon_email" />
+
+    <EditText
+        android:id="@+id/lbl_edit_email"
+        android:layout_width="151dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:hint="@string/user_txtEmail"
+        android:imeOptions="actionNext"
+        app:layout_constraintEnd_toStartOf="@+id/lbl_icon_email"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/lbl_email"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_email" />
+
+    <TextView
+        android:id="@+id/lbl_adress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/user_lblAddress"
+        app:layout_constraintStart_toStartOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_edit_email" />
+
+    <ImageView
+        android:id="@+id/lbl_icon_adress"
+        android:layout_width="@dimen/user_button_min_width"
+        android:layout_height="@dimen/user_button_min_width"
+        android:layout_marginTop="92dp"
+        android:src="@drawable/ic_map_24dp"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_icon_phone"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_email" />
+
+    <EditText
+        android:id="@+id/lbl_edit_url"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:inputType="text"
+        android:hint="@string/user_txtWeb"
+        android:imeOptions="actionDone"
+        app:layout_constraintEnd_toStartOf="@+id/lbl_icon_adress"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_adress" />
+
+    <TextView
+        android:id="@+id/lbl_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="@string/user_lblWeb"
+        app:layout_constraintStart_toStartOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_edit_email" />
+
+    <ImageView
+        android:id="@+id/lbl_icon_url"
+        android:layout_width="@dimen/user_button_min_width"
+        android:layout_height="@dimen/user_button_min_width"
+        android:layout_marginTop="172dp"
+        android:src="@drawable/ic_web_24dp"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_icon_phone"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_email" />
+
+    <EditText
+        android:id="@+id/lbl_edit_adress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:inputType="text"
+        android:hint="@string/user_txtAddress"
+        android:imeOptions="actionNext"
+        app:layout_constraintEnd_toStartOf="@+id/lbl_icon_adress"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lbl_name"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_adress" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

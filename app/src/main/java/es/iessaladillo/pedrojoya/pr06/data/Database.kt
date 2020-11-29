@@ -1,5 +1,48 @@
 package es.iessaladillo.pedrojoya.pr06.data
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import es.iessaladillo.pedrojoya.pr06.data.model.User
+
+
+object Database : DataSource{
+    private val list : MutableList<User> = mutableListOf()
+    private val lista : MutableLiveData<List<User>> = MutableLiveData<List<User>>()
+    private var id: Long = 0;
+
+    init {
+        updateLiveData()
+    }
+
+    override fun getAllUsersOrderedByName(): LiveData<List<User>> = lista
+
+    private fun updateLiveData(){
+        lista.value = list.sortedBy { it.name }
+    }
+
+    override fun insertUser(user: User) {
+        user.id = ++id
+        list.add(user)
+        updateLiveData()
+    }
+
+    override fun updateUser(user: User) {
+        val indexOfFirst = list.indexOfFirst { it.id == user.id }
+        if (indexOfFirst != -1) {
+            list[indexOfFirst] = user
+            updateLiveData()
+        }
+    }
+
+    override fun deleteUser(user: User) {
+        val indexOfFirst = list.indexOfFirst { it.id == user.id }
+        if (indexOfFirst != -1) {
+            list.removeAt(indexOfFirst)
+            updateLiveData()
+        }
+    }
+
+}
 // TODO:
 //  Crear una singleton Database que implemente la interfaz DataSource.
 //  Al insertar un usuario, se le asignará un id autonumérico
