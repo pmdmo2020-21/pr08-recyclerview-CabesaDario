@@ -68,7 +68,7 @@ class EditUserActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.user_activity)
+        setContentView(binding.root)
 
         if(savedInstanceState == null){
             getIntenData()
